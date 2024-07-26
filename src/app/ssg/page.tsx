@@ -10,9 +10,12 @@ interface character {
 
 const getData = async () => {
   const random = Math.random() * (10 - 1) + 1;
-  const res = await fetch(`https://rickandmortyapi.com/api/character?page=${random}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `https://rickandmortyapi.com/api/character?page=${random}`,
+    {
+      cache: "force-cache",
+    }
+  );
   const data = await res.json();
   return data.results;
 };
