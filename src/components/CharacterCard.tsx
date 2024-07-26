@@ -4,6 +4,7 @@ interface IProps {
   image: string;
   name: string;
   status: string;
+
   gender: string;
 }
 
