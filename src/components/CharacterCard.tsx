@@ -1,5 +1,4 @@
 import React from "react";
-import { FaMale, FaFemale } from "react-icons/fa";
 
 interface IProps {
   image: string;
@@ -31,7 +30,7 @@ const CharacterCard = ({ image, name, status, gender }: IProps) => {
         <span className={`flex items-center  gap-2`}>
           gender:
           <span className="flex items-center">
-            {gender === "Male" ? <FaMale /> : <FaFemale />}
+            {/* {gender === "Male" ? <FaMale /> : <FaFemale />} */}
 
             {gender}
           </span>
