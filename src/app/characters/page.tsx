@@ -4,7 +4,6 @@ import CharacterCard from "@/components/CharacterCard";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import CharacterCardSkeleton from "@/components/CharacterCardSkeleton";
-import _ from "lodash";
 
 interface character {
   image: string;
