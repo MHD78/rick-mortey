@@ -1,6 +1,5 @@
 import React from "react";
 import CharacterCard from "@/components/CharacterCard";
-
 interface character {
   image: string;
   name: string;
