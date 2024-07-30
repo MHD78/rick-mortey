@@ -2,6 +2,7 @@ import React from "react";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+
 const Loading = () => {
   const loadingArray = [...Array(20)].fill(1);
   return (
