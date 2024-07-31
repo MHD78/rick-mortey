@@ -1,15 +1,18 @@
 import Image from "next/image";
-import React, { RefObject } from "react";
+import Link from "next/link";
+import React from "react";
 interface IProps {
+  id?: number;
   image: string;
   name: string;
   status: string;
   gender: string;
 }
 
-const CharacterCard = ({ image, name, status, gender }: IProps) => {
+const CharacterCard = ({ id, image, name, status, gender }: IProps) => {
   return (
-    <div
+    <Link
+      href={`/characters/${id}`}
       // onClick={() => alert(name)}
       className="flex  gap-3 h-fulll w-full bg-gray-700 rounded-xl overflow-hidden "
     >
@@ -48,7 +51,7 @@ const CharacterCard = ({ image, name, status, gender }: IProps) => {
           </span>
         </span>
       </div>
-    </div>
+    </Link>
   );
 };
 

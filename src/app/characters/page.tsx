@@ -19,6 +19,7 @@ const Characters = async () => {
       {chars.map((char: character, index: number) => (
         <CharacterCard
           key={char.id}
+          id={char.id}
           image={char.image}
           name={char.name}
           status={char.status}
