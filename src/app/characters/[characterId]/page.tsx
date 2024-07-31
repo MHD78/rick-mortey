@@ -21,6 +21,11 @@ export default async function Page({
   );
   const data = await res.json();
   const characterInfo: Icharacter = data;
+  const time = new Date();
 
-  return <div>{characterInfo.name}</div>;
+  return (
+    <div>
+      {characterInfo.name},{JSON.stringify(time)}
+    </div>
+  );
 }
