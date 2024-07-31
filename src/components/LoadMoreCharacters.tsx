@@ -55,6 +55,7 @@ const LoadMoreCharacters = () => {
       {chars?.map((char: character, index: number) => (
         <div key={char.id} ref={lastElementRef}>
           <CharacterCard
+            id={char.id}
             key={index}
             image={char.image}
             name={char.name}
