@@ -3,7 +3,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import { TextField } from "@mui/material";
 import { useRouter, useSearchParams } from "next/navigation";
-import { usePathname } from "next/navigation";
 
 const handleQueries = (name: string, value: string): string => {
   const params = new URLSearchParams();
@@ -13,7 +12,6 @@ const handleQueries = (name: string, value: string): string => {
 
 const HeaderSearchBox = () => {
   const searchParam = useSearchParams();
-  const pathname: string = usePathname();
   const router = useRouter();
   return (
     <div>
