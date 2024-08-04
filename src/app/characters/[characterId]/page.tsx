@@ -1,4 +1,5 @@
 import { character as Icharacter } from "@/models/character";
+import { notFound } from "next/navigation";
 import React from "react";
 
 export async function generateStaticParams() {
@@ -19,6 +20,7 @@ export default async function Page({
   const res = await fetch(
     `https://rickandmortyapi.com/api/character/${params.characterId}`
   );
+  if (!res.ok) notFound();
   const data = await res.json();
   const characterInfo: Icharacter = data;
   const time = new Date();
