@@ -5,8 +5,8 @@ import LoadMoreCharacters from "@/components/LoadMoreCharacters";
 import { character } from "@/models/character";
 import { notFound, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { useReportWebVitals } from "next/web-vitals";
-const search = () => {
+
+const Search = () => {
   const [chars, setChars] = useState<character[]>([]);
   const params = useSearchParams();
 
@@ -23,9 +23,7 @@ const search = () => {
     };
     getData(String(params.get("name")));
   }, [params.get("name")]);
-  useReportWebVitals((metric) => {
-    console.log(metric);
-  });
+
   return (
     <div className="w-full max-w-[1440px] mx-auto mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 px-10">
       {chars.map((char: character, index: number) => (
@@ -43,4 +41,4 @@ const search = () => {
   );
 };
 
-export default search;
+export default Search;
