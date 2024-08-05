@@ -1,10 +1,10 @@
 "use client";
 
 import { character } from "@/models/character";
-import React, { Suspense, useCallback, useMemo, useRef } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import CharacterCard from "./CharacterCard";
-import { useInfiniteQuery } from "@tanstack/react-query";
-import Loading from "../app/characters/loading";
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
+
 const LoadMoreCharacters = () => {
   const observer = useRef<IntersectionObserver>();
 
@@ -17,6 +17,9 @@ const LoadMoreCharacters = () => {
         return lastPage.length ? allPages.length + 1 : undefined;
       },
     });
+
+  const queryClient = useQueryClient();
+  console.log(queryClient.getQueryData(["theme"]));
 
   const lastElementRef = useCallback(
     (node: HTMLDivElement) => {

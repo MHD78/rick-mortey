@@ -15,7 +15,7 @@ const Characters = async () => {
   const chars: character[] = await getData();
 
   return (
-    <div className="w-full max-w-[1440px] mx-auto mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 px-10">
+    <div className=" w-full max-w-[1440px] mx-auto mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 px-10">
       {chars.map((char: character, index: number) => (
         <CharacterCard
           key={char.id}

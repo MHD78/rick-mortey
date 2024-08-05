@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import React from "react";
 import HeaderSearchBox from "./HeaderSearchBox";
 import { styled, Switch } from "@mui/material";
-import { QueryClient, useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -56,13 +56,14 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 const Header = () => {
   const pathname = usePathname();
+  const queryClient = useQueryClient();
   const { data } = useQuery({
     queryKey: ["theme"],
-    queryFn: () => {},
   });
+  console.log({ data });
   return (
     <>
-      <nav className="sticky top-0 justify-between  mx-auto mt-4 rounded-lg py-6 px-8 flex items-center gap-8 w-full bg-[#000]/40  backdrop-blur-2xl">
+      <nav className="sticky top-0 justify-between  mx-auto  rounded-lg py-6 px-8 flex items-center gap-8 w-full bg-[#000]/40  backdrop-blur-2xl">
         <div className="flex items-center gap-4">
           <Link
             href={"/characters"}
@@ -86,7 +87,18 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex items-center gap-4">
-          <MaterialUISwitch sx={{ m: 1 }} defaultChecked />
+          <MaterialUISwitch
+            onChange={(e) => {
+              queryClient.setQueryData(["theme"], (prev: { theme: string }) => {
+                !e.target.checked
+                  ? { ...prev, theme: "dark" }
+                  : { ...prev, theme: "light" };
+                console.log({ prev });
+              });
+            }}
+            sx={{ m: 1 }}
+            defaultChecked
+          />
           <HeaderSearchBox />
         </div>
       </nav>

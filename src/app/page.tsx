@@ -2,5 +2,6 @@ import { redirect } from "next/navigation";
 
 export default function Home() {
   redirect("/characters");
-  return <main className="">test</main>;
+
+  return <main>home page</main>;
 }
