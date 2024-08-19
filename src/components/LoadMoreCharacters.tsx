@@ -1,6 +1,6 @@
 "use client";
 
-import { character } from "@/models/character";
+import { character } from "@/types/character";
 import React, { useCallback, useMemo, useRef } from "react";
 import CharacterCard from "./CharacterCard";
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";

@@ -5,3 +5,5 @@ export interface character {
     status: string;
     gender: string;
   }
+
+export type location = Partial<character>

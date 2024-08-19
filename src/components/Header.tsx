@@ -6,6 +6,7 @@ import React from "react";
 import HeaderSearchBox from "./HeaderSearchBox";
 import { styled, Switch } from "@mui/material";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import useTheme from "@/store/useTheme";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -57,13 +58,14 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 const Header = () => {
   const pathname = usePathname();
   const queryClient = useQueryClient();
+  const { theme, changeThemeToDark, changeThemeToLight } = useTheme();
   const { data } = useQuery({
     queryKey: ["theme"],
   });
   console.log({ data });
   return (
     <>
-      <nav className="sticky top-0 justify-between  mx-auto  rounded-lg py-6 px-8 flex items-center gap-8 w-full bg-[#000]/40  backdrop-blur-2xl">
+      <nav className="sticky top-0 justify-between  mx-auto   py-6 px-8 flex items-center gap-8 w-full bg-[#000]/40  backdrop-blur-2xl">
         <div className="flex items-center gap-4">
           <Link
             href={"/characters"}
@@ -89,12 +91,7 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <MaterialUISwitch
             onChange={(e) => {
-              queryClient.setQueryData(["theme"], (prev: { theme: string }) => {
-                !e.target.checked
-                  ? { ...prev, theme: "dark" }
-                  : { ...prev, theme: "light" };
-                console.log({ prev });
-              });
+              e.target.checked ? changeThemeToDark() : changeThemeToLight();
             }}
             sx={{ m: 1 }}
             defaultChecked

@@ -1,4 +1,4 @@
-import { character as Icharacter } from "@/models/character";
+import { character as Icharacter } from "@/types/character";
 import { notFound } from "next/navigation";
 import React from "react";
 

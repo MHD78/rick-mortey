@@ -1,24 +1,16 @@
 "use client";
 
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import React, { ReactElement, ReactNode, useEffect } from "react";
+import useTheme from "@/store/useTheme";
+
+import React, { ReactNode } from "react";
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const queryClient = useQueryClient();
-  const { data } = useQuery({
-    queryKey: ["theme"],
-    queryFn: () => {
-      return { theme: "light" };
-    },
-  });
-  useEffect(() => {
-    console.log("new", queryClient.getQueryData(["theme"]));
-  }, [queryClient.getQueryData(["theme"])]);
+  const { theme } = useTheme();
 
   return (
     <div
       className={` w-full h-full ${
-        data?.theme === "dark" ? "bg-[#000]" : "bg-[#fefefe]"
+        theme === "dark" ? "bg-[#000]" : "bg-[#fefefe]"
       } `}
     >
       {children}

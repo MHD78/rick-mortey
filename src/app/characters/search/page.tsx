@@ -2,7 +2,7 @@
 
 import CharacterCard from "@/components/CharacterCard";
 import LoadMoreCharacters from "@/components/LoadMoreCharacters";
-import { character } from "@/models/character";
+import { character } from "@/types/character";
 import { useQuery } from "@tanstack/react-query";
 import { notFound, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";

@@ -1,6 +1,6 @@
 import React from "react";
 import CharacterCard from "@/components/CharacterCard";
-import { character } from "../../models/character";
+import { character } from "../../types/character";
 import LoadMoreCharacters from "@/components/LoadMoreCharacters";
 
 const getData = async () => {
