@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 import HeaderSearchBox from "./HeaderSearchBox";
 import { styled, Switch } from "@mui/material";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -56,6 +56,14 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const Header = () => {
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then((registration) => console.log("scope is: ", registration.scope));
+    }
+  }, []);
+
   const pathname = usePathname();
   const queryClient = useQueryClient();
   const { theme, changeThemeToDark, changeThemeToLight } = useTheme();
