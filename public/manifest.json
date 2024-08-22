@@ -1,0 +1,31 @@
+{
+    "name": "Rick&Morty",
+    "short_name": "R&M",
+    "theme_color": "#000",
+    "background_color": "#000",
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "./logos/rick48.png",
+        "sizes": "42x42",
+        "type": "image/png",
+        "purpose": "maskable any"
+      },
+      {
+        "src": "./logos/rick72.png",
+        "sizes": "63x63",
+        "type": "image/png",
+        "purpose": "maskable any"
+      },
+      {
+        "src": "./logos/rick144.png",
+        "sizes": "144x144",
+        "type": "image/png",
+        "purpose": "maskable any"
+      }
+    ],
+    "splash_pages": null
+  }

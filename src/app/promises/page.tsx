@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-const page = () => {
+const Promises = () => {
   const [test, setTest] = useState<string[] | string>("loading");
   const [value, setValue] = useState<string>("");
   const promiseOne = new Promise((resolve, reject) => {
@@ -49,4 +49,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Promises;
